@@ -2,7 +2,6 @@ import React from "react"
 import List from "./List"
 
 function GroceryList(props) {
-    console.log(props)
     return (
         <div>
             <form className="inputForm" >
