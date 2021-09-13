@@ -5,13 +5,17 @@ import InputField from "./InputField"
 function GroceryList(props) {
     return (
         <div>
-            <InputField 
-            handleSubmit={props.handleSubmit} 
+            <h2>Boodschappenlijst</h2>
+            <InputField
+                handleSubmit={props.handleSubmit}
                 handleInput={props.handleInput}
                 inputValue={props.inputValue}
             />
-            <h2>Boodschappenlijst</h2>
-            <List item={props.item} onClick={props.onClick}/>
+            <List
+                item={props.item}
+                onClick={props.onClick}
+                deleteItem={props.deleteItem}
+            />
         </div>
     )
 

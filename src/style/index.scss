@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins&display=swap');
+@import "./scss/solid.scss";
+
+
+// *, *::before, *::after {
+//     box-sizing: border-box;
+// }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #6B705C;
+    background: #FFE8D6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+header {
+    width: 100%;
+    background: #6B705C;
+    padding: 20px 0;
+    color: #FFE8D6;
+    text-align: center;
+}
+form {
+    display: flex;
+    justify-content: center;
+
+    button {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+button {
+    padding: 10px;
+    background: #6B705C;
+    color: #FFE8D6;
+    border: none;
+    margin: 0;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover, &:active {
+        background:#CB997E;
+    }
+}
+
+input {
+    padding: 10px;
+    margin: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width:700px) {
+        flex-direction: row;
+    }
+
+    > div {
+        width: 80%;
+        text-align: center;
+        align-self: flex-start;
+        margin: 0 auto;
+
+        @media (min-width:700px) {
+            padding: 20px;
+            width: 100%;
+        }
+    }
+
+    ul {
+        padding-inline-start: 0;
+    }
+
+    .list-item {
+        list-style: none;
+        color: #fff;
+        padding: 5px;
+        display: flex;
+
+        &:nth-child(1n){
+            background-color: #CB997E;
+            color: #FFFFFF;
+
+            &:hover {
+            background:#6B705C;
+            color: #B7B7A4
+            }
+
+            button {
+                background: #B7B7A4;
+            }
+        }
+
+        &:nth-child(2n){
+            background-color: #B7B7A4;
+            color: #FFFFFF;
+
+            button{
+                background: #CB997E;
+            }
+        }
+
+        li {
+            width: 95%;
+        }
+        button {
+            width: 5%;
+
+            &:hover {
+                background: #FFE8D6;
+                color: #6B705C;
+            }
+        }
+
+
+    }
+}
+
+.icon-trash {
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+
+    &::after {
+        content:fa-content($fa-var-trash-alt);
+    }
+}

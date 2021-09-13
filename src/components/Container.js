@@ -27,6 +27,15 @@ class Container extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleInput = this.handleInput.bind(this)
         this.addAmountToItem = this.addAmountToItem.bind(this)
+        this.deleteItem = this.deleteItem.bind(this)
+    }
+
+    deleteItem(e) {
+        this.setState(prev => {
+            const newArray = prev.groceryItems.filter(item => item.id !== Number(e.target.value))
+            return { groceryItems: newArray}
+        })
+
     }
 
     handleSubmit(e) {
@@ -61,7 +70,7 @@ class Container extends Component {
     addAmountToItem(item) {
         this.setState(prev => ({
             CartItems: prev.CartItems.map(
-                element => element.title === item.title ? { ...element, amount: element.amount + 1} : element
+                element => element.title.toLowerCase() === item.title.toLowerCase() ? { ...element, amount: element.amount + 1 } : element
             )
         })
         )
@@ -71,7 +80,7 @@ class Container extends Component {
         const target = e.target
         const value = target.innerHTML
         const [filterItem] = this.state.groceryItems.filter(item => item.title === value)
-        const filterCart = this.state.CartItems.find(item => item.title === filterItem.title)
+        const filterCart = this.state.CartItems.find(item => item.title.toLocaleLowerCase() === filterItem.title.toLocaleLowerCase())
         if (filterCart) {
             this.addAmountToItem(filterCart)
         } else {
@@ -105,10 +114,12 @@ class Container extends Component {
                     handleSubmit={this.handleSubmit}
                     handleInput={this.handleInput}
                     inputValue={this.state.inputValue}
+                    deleteItem={this.deleteItem}
                 />
                 <ShoppingCart
                     item={this.state.CartItems}
-                    onClick={this.emptyCart} />
+                    onClick={this.emptyCart}
+                />
             </div>
         )
     }

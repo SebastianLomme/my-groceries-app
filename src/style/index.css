@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins&display=swap");
+/*!
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../webfonts/fa-solid-900.eot");
+  src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+.fa,
+.fas {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #6B705C;
+  background: #FFE8D6;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+header {
+  width: 100%;
+  background: #6B705C;
+  padding: 20px 0;
+  color: #FFE8D6;
+  text-align: center;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+form button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+button {
+  padding: 10px;
+  background: #6B705C;
+  color: #FFE8D6;
+  border: none;
+  margin: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover, button:active {
+  background: #CB997E;
+}
+
+input {
+  padding: 10px;
+  margin: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 700px) {
+  .container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.container > div {
+  width: 80%;
+  text-align: center;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin: 0 auto;
+}
+
+@media (min-width: 700px) {
+  .container > div {
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+.container ul {
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+
+.container .list-item {
+  list-style: none;
+  color: #fff;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .list-item:nth-child(1n) {
+  background-color: #CB997E;
+  color: #FFFFFF;
+}
+
+.container .list-item:nth-child(1n):hover {
+  background: #6B705C;
+  color: #B7B7A4;
+}
+
+.container .list-item:nth-child(1n) button {
+  background: #B7B7A4;
+}
+
+.container .list-item:nth-child(2n) {
+  background-color: #B7B7A4;
+  color: #FFFFFF;
+}
+
+.container .list-item:nth-child(2n) button {
+  background: #CB997E;
+}
+
+.container .list-item li {
+  width: 95%;
+}
+
+.container .list-item button {
+  width: 5%;
+}
+
+.container .list-item button:hover {
+  background: #FFE8D6;
+  color: #6B705C;
+}
+
+.icon-trash {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+}
+
+.icon-trash::after {
+  content: "\f2ed";
+}
+/*# sourceMappingURL=index.css.map */
