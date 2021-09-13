@@ -7,50 +7,108 @@ class Container extends Component {
         super()
         this.state = {
             groceryItems: [
-                { id: 1, title: "Brood", },
-                { id: 2, title: "Melk", },
-                { id: 3, title: "Eieren", },
-                { id: 4, title: "Vlees", },
-                { id: 5, title: "Beleg", },
+                { id: 5, title: "Brood", },
+                { id: 6, title: "Melk", },
+                { id: 7, title: "Eieren", },
+                { id: 8, title: "Vlees", },
+                { id: 9, title: "Beleg", },
             ],
             CartItems: [
-                { id: 6, title: "Bier", },
-                { id: 7, title: "Melk", },
-                { id: 8, title: "Eieren", },
-                { id: 9, title: "Vlees", },
-                { id: 10, title: "Beleg", },
-            ]
+                { id: 1, title: "Bier", amount: 2 },
+                { id: 2, title: "Choco", amount: 1 },
+                { id: 3, title: "Gehakt", amount: 3 },
+                { id: 4, title: "Boter", amount: 3 },
+            ],
+            inputValue: "",
+            highID: 10,
         }
         this.handleClickGroceryItem = this.handleClickGroceryItem.bind(this)
         this.emptyCart = this.emptyCart.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleInput = this.handleInput.bind(this)
+        this.addAmountToItem = this.addAmountToItem.bind(this)
+    }
+
+    handleSubmit(e) {
+        e.preventDefault()
+        if (this.state.inputValue === "") {
+            return
+        } else {
+            const NewGroseryItem = {
+                id: this.state.highID, title: this.state.inputValue,
+            }
+            const newGroseryArray = []
+            this.setState((prev) => {
+                newGroseryArray.push(...prev.groceryItems, NewGroseryItem)
+                return {
+                    groceryItems: newGroseryArray,
+                    inputValue: "",
+                    highID: prev.highID + 1
+                }
+
+            })
+        }
+    }
+
+    handleInput(e) {
+        this.setState({ inputValue: e.target.value })
     }
 
     emptyCart() {
         this.setState({ CartItems: [] })
     }
 
+    addAmountToItem(item) {
+        this.setState(prev => ({
+            CartItems: prev.CartItems.map(
+                element => element.title === item.title ? { ...element, amount: element.amount + 1} : element
+            )
+        })
+        )
+    }
+
     handleClickGroceryItem(e) {
         const target = e.target
         const value = target.innerHTML
         const [filterItem] = this.state.groceryItems.filter(item => item.title === value)
-        console.log("object: ", filterItem)
-        this.setState(prev => {
-            const newArray = []
-            newArray.push(...prev.CartItems, filterItem)
-            return {
-                CartItems: newArray
+        const filterCart = this.state.CartItems.find(item => item.title === filterItem.title)
+        if (filterCart) {
+            this.addAmountToItem(filterCart)
+        } else {
+            this.setState(prev => {
+                const newObject = {
+                    ...filterItem,
+                    amount: 1
+                }
+                const newArray = []
+                newArray.push(...prev.CartItems, newObject)
+                return {
+                    CartItems: newArray
+                }
             }
-        })
-        console.log(this.state)
+            )
+
+        }
+
+
+
     }
 
 
 
     render() {
         return (
-            <div>
-                <GroceryList item={this.state.groceryItems} onClick={this.handleClickGroceryItem} />
-                <ShoppingCart item={this.state.CartItems} onClick={this.emptyCart} />
+            <div className="container">
+                <GroceryList
+                    item={this.state.groceryItems}
+                    onClick={this.handleClickGroceryItem}
+                    handleSubmit={this.handleSubmit}
+                    handleInput={this.handleInput}
+                    inputValue={this.state.inputValue}
+                />
+                <ShoppingCart
+                    item={this.state.CartItems}
+                    onClick={this.emptyCart} />
             </div>
         )
     }

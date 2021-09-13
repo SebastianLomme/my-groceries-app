@@ -5,7 +5,7 @@ function ShoppingCart(props) {
     return (
         <div>
             <h2>Winkelmand</h2>
-            <button onClick={props.onClick}>Leef de Winkelmand</button>
+            <button onClick={props.onClick}>Leeg de Winkelmand</button>
             <List item={props.item}/>
         </div>
     )

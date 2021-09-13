@@ -8,7 +8,7 @@ function ListItem(props) {
             id={item.id}
             onClick={props.onClick}
         >
-            {item.title}
+            {item.amount ? `${item.title} hoeveelheid: ${item.amount}`: `${item.title}` }
         </li>
     )
 }

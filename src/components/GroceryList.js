@@ -1,17 +1,15 @@
 import React from "react"
 import List from "./List"
+import InputField from "./InputField"
 
 function GroceryList(props) {
     return (
         <div>
-            <form className="inputForm" >
-                <input
-                    type="text"
-                    placeholder="Vul je boodschappen in"
-
-                ></input>
-                <button>Voeg toe</button>
-            </form>
+            <InputField 
+            handleSubmit={props.handleSubmit} 
+                handleInput={props.handleInput}
+                inputValue={props.inputValue}
+            />
             <h2>Boodschappenlijst</h2>
             <List item={props.item} onClick={props.onClick}/>
         </div>
