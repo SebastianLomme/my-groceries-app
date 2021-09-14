@@ -149,11 +149,13 @@ input {
 }
 
 .container .list-item li {
-  width: 95%;
+  width: 100%;
 }
 
 .container .list-item button {
-  width: 5%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .container .list-item button:hover {

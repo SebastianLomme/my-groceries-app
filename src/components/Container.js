@@ -33,7 +33,7 @@ class Container extends Component {
     deleteItem(e) {
         this.setState(prev => {
             const newArray = prev.groceryItems.filter(item => item.id !== Number(e.target.value))
-            return { groceryItems: newArray}
+            return { groceryItems: newArray }
         })
 
     }

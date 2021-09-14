@@ -112,10 +112,11 @@ input {
         }
 
         li {
-            width: 95%;
+            width: 100%;
         }
         button {
-            width: 5%;
+            width: fit-content;
+
 
             &:hover {
                 background: #FFE8D6;
